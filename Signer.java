@@ -1,8 +1,7 @@
 import java.math.BigInteger;
-import java.util.Scanner;
 
 public class Signer {
-    private RSAKeyPair rsaKeyPair;
+    RSAKeyPair rsaKeyPair;
 
     Signer() {
         rsaKeyPair = new RSAKeyPair();
@@ -14,9 +13,10 @@ public class Signer {
         return SHA256Hash.encode(message);
     }
 
-    public Signature signMessage(BigInteger messageHash) {
+    public Signature signMessage(String message) {
+        BigInteger messageHash = encode(message);
         BigInteger signedHash = messageHash.modPow(rsaKeyPair.privateKey.d, rsaKeyPair.privateKey.n);
-        return new Signature(messageHash, signedHash);
+        return new Signature(message, signedHash);
     }
 
     public RSAPublicKey getPublicKey() {
@@ -27,11 +27,11 @@ public class Signer {
 }
 
 class Signature {
-    BigInteger messageHash;
+    String messageString;
     BigInteger signedHash;
     
-    Signature(BigInteger messageHash, BigInteger signedHash) {
-        this.messageHash = messageHash;
+    Signature(String messageString, BigInteger signedHash) {
+        this.messageString = messageString;
         this.signedHash = signedHash;
     }
 }

@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 public class RSAKeyPair {
     RSAPublicKey publicKey;
     RSAPrivateKey privateKey;
+    
 
     private static final Integer RSA_KEY_SIZE = 1024;
     private static final Integer ENCRYPTION_EXPONENT = 65537;
