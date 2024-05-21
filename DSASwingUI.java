@@ -173,7 +173,6 @@ public class DSASwingUI {
         verifierPanel.add(new JLabel("Signature:"));
         receivedSignatureTextArea = new JTextArea(4, 0);
         receivedSignatureTextArea.setAlignmentX(Component.LEFT_ALIGNMENT);
-        receivedSignatureTextArea.setEditable(false);
         receivedSignatureTextArea.setLineWrap(true);
         receivedSignatureTextArea.setFont(MONOSPACE_FONT);
         receivedSignatureTextArea.setMaximumSize(MAXIMUM_TEXTAREA_DIMENSION);
